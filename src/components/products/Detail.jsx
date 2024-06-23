@@ -1,13 +1,14 @@
-import { Box, Modal } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 import React from "react";
+import { useCart } from "../../context/CartContextProvaider";
 
-const Detail = ({ elem, open, handleClose }) => {
+const Detail = ({ open, handleClose }) => {
   const style = {
     position: "absolute",
-    top: "15%",
-    left: "25%",
+    top: "30%",
+    left: "30%",
     width: 700,
-    dispay: "flex",
+    display: "flex",
     border: "2px solid black",
     boxShadow: 24,
     bgcolor: "background.paper",
@@ -17,13 +18,14 @@ const Detail = ({ elem, open, handleClose }) => {
     <Modal open={open} onClose={handleClose}>
       <Box sx={style}>
         <div>
-          <img width={300} src={elem.image} alt="" />
+          <img width={300} src="" alt="" />
         </div>
         <div>
-          <h1>{elem.title}</h1>
-          <p>{elem.description}</p>
-          <p>{elem.price}</p>
+          <h1></h1>
+          <p></p>
+          <p></p>
         </div>
+        <div style={{ marginTop: "auto" }}></div>
       </Box>
     </Modal>
   );

@@ -5,11 +5,16 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import LunchDiningSharpIcon from "@mui/icons-material/LunchDiningSharp";
+import { Link } from "react-router-dom";
+import { Badge, MenuItem } from "@mui/material";
+import { ShoppingCart } from "@mui/icons-material";
 import AnchorIcon from "@mui/icons-material/Anchor";
+import LunchDiningSharpIcon from "@mui/icons-material/LunchDiningSharp";
+import { useCart } from "../../context/CartContextProvaider";
+import { getProductsCountInCart } from "../../helpers/function";
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -18,6 +23,7 @@ function Navbar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -30,10 +36,20 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const pages = [
+    { id: 1, title: "Products", link: "/products" },
+    { id: 4, title: "About", link: "/about" },
+    { id: 5, title: "Contacts", link: "/contacts" },
+  ];
+
   return (
     <AppBar
-      style={{ backgroundColor: "#ff8085", color: "#b32d2e" }} // Цвета Красти Краба
-      position="static"
+      style={{
+        backgroundColor: "#4f94d4",
+        color: "#01263a",
+        border: "2px solid blue",
+      }}
+      position="center"
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -61,15 +77,15 @@ function Navbar() {
             <IconButton
               size="large"
               aria-label="account of current user"
-              aria-controls="menu-appbar-pages" // Уникальный id для страниц меню
+              aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <AnchorIcon />
+              <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar-pages" // Уникальный id для страниц меню
+              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -86,15 +102,18 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Menu</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">About Us</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Contact</Typography>
-              </MenuItem>
+              {pages.map((page) => (
+                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link
+                      to={page.link}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      {page.title}
+                    </Link>
+                  </Typography>
+                </MenuItem>
+              ))}
             </Menu>
           </Box>
 
@@ -116,30 +135,51 @@ function Navbar() {
           >
             KRUSTY KRAB
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">Menu</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">About Us</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">Contact</Typography>
-            </MenuItem>
+            {pages.map((page) => (
+              <Link
+                key={page.id}
+                to={page.link}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
+                </MenuItem>
+              </Link>
+            ))}
           </Box>
+
+          <Link
+            to="/admin"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <MenuItem>
+              <Typography textAlign="center">[ADMIN]</Typography>
+            </MenuItem>
+          </Link>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }} />
+
+          <Link to={"/cart"}>
+            <Badge>
+              <ShoppingCart sx={{ color: "blue" }} />
+            </Badge>
+          </Link>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0, color: "#b32d2e" }}
-                aria-controls="menu-appbar-user" // Уникальный id для меню пользователя
+                sx={{ p: 0, color: "#01263a" }}
+                aria-controls="menu-appbar-user"
                 aria-haspopup="true"
               >
                 <LunchDiningSharpIcon />
               </IconButton>
             </Tooltip>
             <Menu
-              id="menu-appbar-user" // Уникальный id для меню пользователя
+              id="menu-appbar-user"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
@@ -153,8 +193,11 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Profile</Typography>
+              <MenuItem
+                sx={{ backgroundColor: "pink" }}
+                onClick={handleCloseUserMenu}
+              >
+                <Typography textAlign="center">[Admin]</Typography>
               </MenuItem>
             </Menu>
           </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 
-const SideBar = () => {
+const CartPage = () => {
   return <div></div>;
 };
 
-export default SideBar;
+export default CartPage;
