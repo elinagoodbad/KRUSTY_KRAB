@@ -1,0 +1,59 @@
+cart-container styles .cart-container {
+  /* background-image: url("https://images.template.net/218277/free-spongebob-floral-background-edit-online.jpg"); */
+  background-size: cover;
+  padding: 20px;
+  border-radius: 20px;
+  font-family: "Patrick Hand", Arial;
+}
+
+.cart-table-container {
+  margin-top: 30px;
+  border: 3px solid #ffd700;
+  border-radius: 20px;
+  background-color: rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+.cart-table {
+  min-width: 300px;
+  width: 100%;
+}
+
+.cart-table-head {
+  background-color: #87ceeb;
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 3px solid #ffd700;
+}
+
+.cart-table-body {
+  font-size: 14px;
+  color: #000;
+  border-bottom: 2px solid #ffd700;
+}
+
+.cart-image {
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+}
+
+.cart-input {
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: "Patrick Hand", Arial;
+}
+
+.buy-button {
+  margin-top: 30px;
+  color: #000;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Patrick Hand", Arial;
+}

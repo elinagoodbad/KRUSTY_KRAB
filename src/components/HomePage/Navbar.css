@@ -1,0 +1,90 @@
+.appBar {
+  backgroundcolor: #4f94d4;
+  color: #01263a;
+  border: 5px solid black;
+}
+
+.toolbar {
+  display: flex;
+  justifycontent: space-between;
+  alignitems: center;
+}
+
+.anchorIcon {
+  display: none;
+}
+
+.title {
+  fontfamily: "Amatic SC, cursive";
+  fontweight: 700;
+  fontsize: 40px;
+  letterspacing: 0.3rem;
+  color: inherit;
+  textdecoration: none;
+  display: block;
+}
+
+.flexGrow {
+  flexgrow: 1;
+  display: flex;
+  alignitems: center;
+  justifycontent: flex-end;
+}
+
+.menuButton {
+  display: none;
+}
+
+.menu {
+  display: block;
+}
+
+.link {
+  textdecoration: none;
+  color: inherit;
+}
+
+.avatar {
+  border: 2px solid black;
+  marginright: 10px;
+}
+
+.cartLink {
+  color: inherit;
+  textdecoration: none;
+  display: flex;
+  alignitems: center;
+}
+
+.cartIcon {
+  color: #01263a;
+}
+
+@media (max-width: 960px) {
+  .anchorIcon {
+    display: flex;
+    marginright: 10px;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .mobileOnly {
+    display: flex;
+  }
+
+  .flexGrow {
+    flexgrow: 1;
+    justifycontent: flex-end;
+  }
+
+  .cartLink {
+    display: flex;
+    alignitems: center;
+  }
+}

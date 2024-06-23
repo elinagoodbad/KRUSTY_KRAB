@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <AppBar
-      style={{ backgroundColor: "#ff8085", color: "#b32d2e" }} // Цвета Красти Краба
+      style={{ backgroundColor: "#ff8085", color: "#b32d2e" }}
       position="static"
     >
       <Container maxWidth="xl">
@@ -61,7 +61,7 @@ function Navbar() {
             <IconButton
               size="large"
               aria-label="account of current user"
-              aria-controls="menu-appbar-pages" // Уникальный id для страниц меню
+              aria-controls="menu-appbar-pages"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
@@ -69,7 +69,7 @@ function Navbar() {
               <AnchorIcon />
             </IconButton>
             <Menu
-              id="menu-appbar-pages" // Уникальный id для страниц меню
+              id="menu-appbar-pages"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -132,14 +132,14 @@ function Navbar() {
               <IconButton
                 onClick={handleOpenUserMenu}
                 sx={{ p: 0, color: "#b32d2e" }}
-                aria-controls="menu-appbar-user" // Уникальный id для меню пользователя
+                aria-controls="menu-appbar-user"
                 aria-haspopup="true"
               >
                 <LunchDiningSharpIcon />
               </IconButton>
             </Tooltip>
             <Menu
-              id="menu-appbar-user" // Уникальный id для меню пользователя
+              id="menu-appbar-user"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
