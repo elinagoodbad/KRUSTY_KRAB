@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
-import { API, API_CATEGORIES, API_PRODUCTS } from "../helpers/const";
+import { API_CATEGORIES, API_MENU, API_PRODUCTS } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -25,12 +25,12 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   //!CREATE
   const createProduct = async (newProduct) => {
-    await axios.post(API_PRODUCTS, newProduct);
+    await axios.post(API_MENU, newProduct);
     navigate("/products");
   };
   //!GET
   const getProducts = async () => {
-    const { data } = await axios(`${API_PRODUCTS}${window.location.search}`);
+    const { data } = await axios(`${API_MENU}${window.location.search}`);
     dispatch({
       type: "GET_PRODUCTS",
       payload: data,
@@ -38,12 +38,12 @@ const ProductContextProvider = ({ children }) => {
   };
   //!DELETE
   const deleteProduct = async (id) => {
-    await axios.delete(`${API_PRODUCTS}/${id}`);
+    await axios.delete(`${API_MENU}/${id}`);
     getProducts();
   };
   //!GetOneProduct
   const getOneProduct = async (id) => {
-    const { data } = await axios(`${API_PRODUCTS}/${id}`);
+    const { data } = await axios(`${API_MENU}/${id}`);
     dispatch({
       type: "GET_ONE_PRODUCT",
       payload: data,
@@ -51,7 +51,7 @@ const ProductContextProvider = ({ children }) => {
   };
   //!EDIT
   const editProduct = async (id, editedProduct) => {
-    await axios.patch(`${API_PRODUCTS}/${id}`, editedProduct);
+    await axios.patch(`${API_MENU}/${id}`, editedProduct);
     navigate("/products");
   };
   //!create category
@@ -67,17 +67,7 @@ const ProductContextProvider = ({ children }) => {
       payload: data,
     });
   };
-  //! filter
-  const fetchByParams = (query, value) => {
-    const search = new URLSearchParams(window.location.search);
-    if (value === "all") {
-      search.delete(query);
-    } else {
-      search.set(query, value);
-    }
-    const url = `${window.location.pathname}?${search}`;
-    navigate(url);
-  };
+
   const values = {
     createProduct,
     getProducts,
@@ -89,7 +79,6 @@ const ProductContextProvider = ({ children }) => {
     createCategory,
     getCategories,
     categories: state.categories,
-    fetchByParams,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>

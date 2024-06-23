@@ -1,1 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+body {
+  background-image: url("https://kartinki.pics/uploads/posts/2021-04/1617590794_9-p-gubka-bob-fon-9.jpg");
+
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

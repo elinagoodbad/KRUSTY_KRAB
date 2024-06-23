@@ -42,12 +42,15 @@ const EditProduct = () => {
   return (
     <Box
       sx={{
-        width: "50vw",
-        height: 500,
-        margin: "20px auto",
+        width: "45%",
+        height: 450,
+        margin: "100px auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        backgroundColor: "#D0F4DE",
+        gap: "2",
+        border: "1px solid black",
       }}
     >
       <Typography variant="h4" align="center">
@@ -56,10 +59,11 @@ const EditProduct = () => {
       <TextField
         name="title"
         fullWidth
-        label="title"
+        label="Title"
         variant="outlined"
         onChange={handleInput}
         value={product.title}
+        sx={{ marginBottom: 2, backgroundColor: "#80ED99" }}
       />
       <TextField
         name="desctiption"
@@ -68,25 +72,33 @@ const EditProduct = () => {
         variant="outlined"
         onChange={handleInput}
         value={product.desctiption}
+        sx={{ marginBottom: 2, backgroundColor: "#80ED99" }}
       />
       <TextField
         name="image"
         fullWidth
-        label="image"
+        label="Image"
         variant="outlined"
         onChange={handleInput}
         value={product.image}
+        sx={{ marginBottom: 2, backgroundColor: "#80ED99" }}
       />
       <TextField
         name="price"
         fullWidth
-        label="price"
+        label="Price"
         variant="outlined"
         onChange={handleInput}
         value={product.price}
+        sx={{ marginBottom: 2, backgroundColor: "#80ED99" }}
       />
       {/* onClick={() => navigate(`/edit/${id}`)} */}
-      <Button onClick={handleClick} fullWidth variant="contained">
+      <Button
+        onClick={handleClick}
+        fullWidth
+        variant="contained"
+        color="success"
+      >
         ADD PRODUCT
       </Button>
     </Box>

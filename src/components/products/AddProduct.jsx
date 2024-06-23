@@ -7,76 +7,76 @@ const AddProduct = () => {
   const { createProduct } = useProducts();
   const [product, setProduct] = useState({
     title: "",
-    desctiption: "",
     price: 0,
     image: "",
     category: "",
   });
 
   const handleInput = (e) => {
-    // console.log(e.target);
     if (e.target.name === "price") {
-      const obj = {
-        ...product,
-        [e.target.name]: Number(e.target.value),
-      };
-      setProduct(obj);
+      setProduct({ ...product, [e.target.name]: Number(e.target.value) });
     } else {
-      const obj = {
-        ...product,
-        [e.target.name]: e.target.value,
-      };
-      setProduct(obj);
+      setProduct({ ...product, [e.target.name]: e.target.value });
     }
   };
+
   const handleClick = () => {
     createProduct(product);
   };
+
   return (
     <Box
       sx={{
-        width: "50vw",
-        height: 500,
-        margin: "20px auto",
+        width: "45%",
+        padding: 2,
+        border: "1px solid black",
+        borderRadius: 1,
+        margin: "50px",
+        backgroundColor: "#ADE8FE",
+        color: "#01263a",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        marginLeft: "28px",
+        float: "left",
       }}
     >
-      <Typography variant="h4" align="center">
-        ADMIN PAGE
+      <Typography variant="h5" align="center">
+        Add new product
       </Typography>
       <TextField
         name="title"
         fullWidth
-        label="title"
+        label="Title"
         variant="outlined"
         onChange={handleInput}
+        sx={{ marginBottom: 2, backgroundColor: "#FFD166" }}
       />
-      <TextField
-        name="desctiption"
-        fullWidth
-        label="Description"
-        variant="outlined"
-        onChange={handleInput}
-      />
+
       <TextField
         name="image"
         fullWidth
-        label="image"
+        label="Image URL"
         variant="outlined"
         onChange={handleInput}
+        sx={{ marginBottom: 2, backgroundColor: "#FFD166" }}
       />
       <TextField
         name="price"
         fullWidth
-        label="price"
+        label="Price"
         variant="outlined"
         onChange={handleInput}
+        sx={{ marginBottom: 2, backgroundColor: "#FFD166" }}
       />
       <CategorySelect handleInput={handleInput} />
-      <Button onClick={handleClick} fullWidth variant="contained">
-        ADD PRODUCT
+      <Button
+        onClick={handleClick}
+        fullWidth
+        variant="contained"
+        color="warning"
+      >
+        Add Product
       </Button>
     </Box>
   );

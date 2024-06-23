@@ -17,6 +17,7 @@ const CategorySelect = ({ handleInput }) => {
           label="Category"
           onChange={handleInput}
           name="category"
+          sx={{ marginBottom: 2, backgroundColor: "#FFD166" }}
         >
           {categories.map((elem) => (
             <MenuItem key={elem.id} value={elem.name}>

@@ -1,3 +1,3 @@
-export const API_PRODUCTS = "http://localhost:8001/posts";
-export const API_CATEGORIES = "http://localhost:8001/categories";
-export const API_COMMENTS = "http://localhost:8001/comments";
+export const API_MENU = "  http://localhost:8005/menu";
+export const API_CATEGORIES = "http://localhost:8005/categories";
+export const API_COMMENTS = "http://localhost:8005/comments";
