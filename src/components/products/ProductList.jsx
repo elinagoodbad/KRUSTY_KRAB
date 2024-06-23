@@ -18,7 +18,7 @@ const ProductList = () => {
   }, []);
   console.log(products);
   // кол-во продуктов  на 1 стр
-  const itemPerPage = 6;
+  const itemPerPage = 5;
   // общее кол-вл стр
   const count = Math.ceil(products.length / itemPerPage);
   console.log(count);
