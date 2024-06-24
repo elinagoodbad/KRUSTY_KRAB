@@ -5,7 +5,7 @@ import HomeMainPage from "../HomePage/HomeMainPage";
 const HomePage = () => {
   return (
     <div>
-      <HomeMainPage />
+      <HomePage />
     </div>
   );
 };

@@ -1,72 +1,113 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
-import { API, API_CATEGORIES, API_PRODUCTS } from "../helpers/const";
+import { API_CATEGORIES, API_MENU, API_PRODUCTS } from "../helpers/const";
 import { useNavigate } from "react-router-dom";
+
 export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
+
 const INIT_STATE = {
   products: [],
   oneProduct: [],
   categories: [],
 };
+
+const reducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+    case "GET_PRODUCTS":
+      return { ...state, products: action.payload };
+    case "GET_ONE_PRODUCT":
+      return { ...state, oneProduct: action.payload };
+    case "GET_CATEGORIES":
+      return { ...state, categories: action.payload };
+    default:
+      return state;
+  }
+};
+
 const ProductContextProvider = ({ children }) => {
-  const reducer = (state = INIT_STATE, action) => {
-    switch (action.type) {
-      case "GET_PRODUCTS":
-        return { ...state, products: action.payload };
-      case "GET_ONE_PRODUCT":
-        return { ...state, oneProduct: action.payload };
-      case "GET_CATEGORIES":
-        return { ...state, categories: action.payload };
+  const navigate = useNavigate();
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+  //!CREATE
+  const createProduct = async (newProduct) => {
+    try {
+      await axios.post(API_MENU, newProduct);
+      navigate("/products");
+    } catch (error) {
+      console.error("Failed to create product:", error);
     }
   };
 
-  const navigate = useNavigate();
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  //!CREATE
-  const createProduct = async (newProduct) => {
-    await axios.post(API_PRODUCTS, newProduct);
-    navigate("/products");
-  };
   //!GET
   const getProducts = async () => {
-    const { data } = await axios(`${API_PRODUCTS}${window.location.search}`);
-    dispatch({
-      type: "GET_PRODUCTS",
-      payload: data,
-    });
+    try {
+      const { data } = await axios(`${API_MENU}${window.location.search}`);
+      dispatch({
+        type: "GET_PRODUCTS",
+        payload: data,
+      });
+    } catch (error) {
+      console.error("Failed to get products:", error);
+    }
   };
+
   //!DELETE
   const deleteProduct = async (id) => {
-    await axios.delete(`${API_PRODUCTS}/${id}`);
-    getProducts();
+    try {
+      await axios.delete(`${API_MENU}/${id}`);
+      getProducts();
+    } catch (error) {
+      console.error("Failed to delete product:", error);
+    }
   };
+
   //!GetOneProduct
   const getOneProduct = async (id) => {
-    const { data } = await axios(`${API_PRODUCTS}/${id}`);
-    dispatch({
-      type: "GET_ONE_PRODUCT",
-      payload: data,
-    });
+    try {
+      const { data } = await axios(`${API_MENU}/${id}`);
+      dispatch({
+        type: "GET_ONE_PRODUCT",
+        payload: data,
+      });
+    } catch (error) {
+      console.error("Failed to get product:", error);
+    }
   };
+
   //!EDIT
   const editProduct = async (id, editedProduct) => {
-    await axios.patch(`${API_PRODUCTS}/${id}`, editedProduct);
-    navigate("/products");
+    try {
+      await axios.patch(`${API_MENU}/${id}`, editedProduct);
+      navigate("/products");
+    } catch (error) {
+      console.error("Failed to edit product:", error);
+    }
   };
+
   //!create category
   const createCategory = async (newCategory) => {
-    await axios.post(API_CATEGORIES, newCategory);
-    navigate("/products");
+    try {
+      await axios.post(API_CATEGORIES, newCategory);
+      navigate("/products");
+    } catch (error) {
+      console.error("Failed to create category:", error);
+    }
   };
+
   //! get category
   const getCategories = async () => {
-    const { data } = await axios(API_CATEGORIES);
-    dispatch({
-      type: "GET_CATEGORIES",
-      payload: data,
-    });
+    try {
+      const { data } = await axios(API_CATEGORIES);
+      dispatch({
+        type: "GET_CATEGORIES",
+        payload: data,
+      });
+    } catch (error) {
+      console.error("Failed to get categories:", error);
+    }
   };
+
   //! filter
   const fetchByParams = (query, value) => {
     const search = new URLSearchParams(window.location.search);
@@ -78,6 +119,7 @@ const ProductContextProvider = ({ children }) => {
     const url = `${window.location.pathname}?${search}`;
     navigate(url);
   };
+
   const values = {
     createProduct,
     getProducts,
@@ -91,6 +133,7 @@ const ProductContextProvider = ({ children }) => {
     categories: state.categories,
     fetchByParams,
   };
+
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
   );

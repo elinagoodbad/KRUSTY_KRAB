@@ -7,12 +7,15 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Badge,
+  IconButton,
 } from "@mui/material";
+
 import React, { useEffect } from "react";
 import { useCart } from "../context/CartContextProvider";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "./Cart.css";
+import "./Cart.css"; // Importing custom CSS for additional styling
 
 const theme = createTheme({
   typography: {
@@ -20,10 +23,10 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#FFD700",
+      main: "#FFD700", // SpongeBob yellow
     },
     secondary: {
-      main: "#87CEEB",
+      main: "#87CEEB", // Light blue
     },
   },
   components: {

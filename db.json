@@ -1,5 +1,151 @@
 {
-  "posts": [],
-  "categories": [],
-  "comments": []
+  "menu": [
+    {
+      "title": "Krabby_Patty",
+      "price": 50,
+      "image": "https://cdn.kanobu.ru/r/83d6bbc0f4a94a3fc70b8f61d26f2194/1040x-/u.kanobu.ru/editor/images/47/195f5de7-769d-4b87-ac8a-5606ac3e008a.jpg",
+      "category": "BURGER",
+      "id": 1
+    },
+    {
+      "title": "Not_for_plancton",
+      "price": 55,
+      "image": "https://cs12.pikabu.ru/post_img/2021/05/01/6/1619858138139469403.png",
+      "category": "BURGER",
+      "id": 2
+    },
+    {
+      "title": "Combo_burgers",
+      "price": 99.9,
+      "image": "https://klev.club/uploads/posts/2023-10/1698660328_klev-club-p-arti-spanch-bob-burgeri-21.jpg",
+      "category": "BURGER",
+      "id": 3
+    },
+    {
+      "title": "SpongeBob_favorite",
+      "price": 70,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFny64-FJqRCLBqd4gFYotUjDfMCCPYyp4GGq1k-M10KQhkRpd6ZQXGPi8vi5LiEi21Kg&usqp=CAU",
+      "category": "BURGER",
+      "id": 4
+    },
+    {
+      "title": "Jupiter_burger_pizza",
+      "price": 100,
+      "image": "https://celes.club/pictures/uploads/posts/2023-06/1687569066_celes-club-p-krabsburger-risunok-risunok-instagram-12.jpg",
+      "category": "PIZZA",
+      "id": 5
+    },
+    {
+      "title": "Stinky_burger",
+      "price": 60,
+      "image": "https://celes.club/pictures/uploads/posts/2023-06/1687569160_celes-club-p-krabsburger-risunok-risunok-instagram-30.png",
+      "category": "BURGER",
+      "id": 6
+    },
+    {
+      "title": "Big_yikes_burger",
+      "price": 40,
+      "image": "https://klev.club/uploads/posts/2023-10/1698660335_klev-club-p-arti-spanch-bob-burgeri-43.png",
+      "category": "BURGER",
+      "id": 7
+    },
+    {
+      "title": "Rainbow_burgers",
+      "price": 150,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXoIqt0q49wrIWP3po8kyDIHt1lOcgIjwDCprN9YKY96NzqWo",
+      "category": "BURGER",
+      "id": 8
+    },
+    {
+      "title": "Jellyfish_burger",
+      "price": 50,
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhDcZwkNMyfJgOUqQ29BgyC1wtORsd-f9Oqt3dDpgyPknrfIbP",
+      "category": "BURGER",
+      "id": 9
+    },
+    {
+      "title": "No_burger",
+      "price": 50,
+      "image": "https://external-preview.redd.it/someone-put-the-location-of-the-krusty-krab-from-spongebob-v0-8axw_xIcpXcwa5Q3cAq-2u9VMY6rPii738lZdet5xdk.jpg?width=640&crop=smart&auto=webp&s=ba9499a01c544a8eb48d0c49147d000ac5edb442",
+      "category": "BURGER",
+      "id": 10
+    },
+    {
+      "title": "SpongeBob_pizzas",
+      "price": 120,
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSRB1rkqK2tHEwFKHpyk30cW5Pgq6auB9-pzd6sod9ge2v8F72E",
+      "category": "PIZZA",
+      "id": 11
+    },
+    {
+      "title": "Kelp_Jerky",
+      "price": 50,
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTh_fYPaLO7KseninKPs1NAY82q9jOTVAVuWvd-dbXBwddQ6Ejv",
+      "category": "OTHER",
+      "id": 12
+    },
+    {
+      "title": "Balls",
+      "price": 50,
+      "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRoVZzhclFhytUiol4AKwxK2h-yGwC_oSGg8F_wZnXZt_qZpCWv",
+      "category": "OTHER",
+      "id": 13
+    },
+    {
+      "title": "Fish_Food",
+      "price": 70,
+      "image": "https://pbs.twimg.com/media/EqfAWQkU0AAH8uS.jpg",
+      "category": "OTHER",
+      "id": 14
+    },
+    {
+      "title": "Canned_Coral",
+      "price": 65,
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQESPo2FMDr7L4Ed1mqp26tZPtlYA9ZeTl3SXFtgF6qMWiVi454",
+      "category": "OTHER",
+      "id": 15
+    },
+    {
+      "title": "Canned_Bread",
+      "price": 56,
+      "image": "https://img.ifunny.co/images/787236570bae0a2f59488ea34fd5414b4b89a0123e2be4d45c6664126bf6a8d8_1.jpg",
+      "category": "OTHER",
+      "id": 16
+    },
+    {
+      "title": "Seanut_Brittle",
+      "price": 75,
+      "image": "https://i.pinimg.com/474x/46/56/54/46565436192a442ad25b04afd8ebf772.jpg",
+      "category": "OTHER",
+      "id": 17
+    }
+  ],
+  "categories": [
+    {
+      "name": "PIZZA",
+      "id": 1
+    },
+    {
+      "name": "BURGER",
+      "id": 2
+    },
+    {
+      "name": "OTHER",
+      "id": 3
+    }
+  ],
+  "register": [
+    {
+      "name": "SpongeBob",
+      "email": "SpongeBob@krusty.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "name": "PatrikStar",
+      "email": "PatrikStar@krusty.com",
+      "password": "4321",
+      "id": 2
+    }
+  ]
 }
